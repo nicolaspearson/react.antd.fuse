@@ -1,0 +1,82 @@
+@import 'app-theme.less';
+
+.DashboardLayout__Body {
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+	justify-content: center;
+	background: @dashboard-background;
+
+	.Layout__Trigger {
+		font-size: 18px;
+		line-height: 64px;
+		padding: 0 24px;
+		cursor: pointer;
+		transition: color 0.3s;
+	}
+
+	.Layout__Trigger:hover {
+		color: @primary-color;
+	}
+
+	.DashboardLayout__Logo {
+		height: 80px;
+		background: rgba(255, 255, 255, 0.2);
+		display: flex;
+		flex: 1;
+		justify-content: center;
+		align-items: center;
+
+		.Logo__Main {
+			height: 55px;
+			margin: 8px;
+		}
+	}
+
+	.DashboardLayout__Header {
+		box-shadow: @shadow-2;
+		height: 56px;
+		z-index: 9;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: @color-white;
+
+		.Layout__Right__Wrapper {
+			display: flex;
+			padding-right: 0px;
+		}
+
+		.Menu__Button {
+			width: 56px;
+			height: 56px;
+			line-height: 56px;
+			text-align: center;
+			font-size: 18px;
+			cursor: pointer;
+			transition: @transition-ease-in;
+
+			&:hover {
+				color: @primary-color;
+				background-color: fade(@primary-color, 15%);
+			}
+		}
+	}
+
+	.ant-layout-header {
+		padding: 0;
+	}
+
+	@media screen and (min-width: 770px) {
+		.DashboardLayout__Header {
+			.Layout__Right__Wrapper {
+				padding-right: 10px;
+			}
+		}
+	}
+}
+
+.ant-popover {
+	width: 280px;
+	margin-left: 6px;
+}

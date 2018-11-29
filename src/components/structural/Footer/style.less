@@ -1,0 +1,22 @@
+@import 'app-theme.less';
+
+.Footer {
+	width: 100%;
+	padding-bottom: 20px;
+	background-color: @footer-background;
+	position: absolute;
+	bottom: 0;
+
+	.Footer__Content {
+		text-align: end;
+		font-size: 10px;
+		margin-right: 20px;
+		color: @footer-font-color;
+	}
+}
+
+@media screen and (min-width: 560px) {
+	.Footer {
+		padding-bottom: 20px;
+	}
+}

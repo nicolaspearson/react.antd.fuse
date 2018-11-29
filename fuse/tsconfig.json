@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"outDir": "build",
+		"target": "es6",
+		"allowJs": false,
+		"jsx": "react",
+		"moduleResolution": "node",
+		"baseUrl": ".",
+		"forceConsistentCasingInFileNames": true,
+		"experimentalDecorators": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"suppressImplicitAnyIndexErrors": true,
+		"noUnusedLocals": true
+	},
+	"exclude": ["node_modules", "build"]
+}

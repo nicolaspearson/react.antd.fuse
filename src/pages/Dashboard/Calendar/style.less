@@ -1,0 +1,21 @@
+@import 'app-theme.less';
+
+.Calendar__Body {
+	position: relative;
+	background-color: @color-white;
+	margin: 16px;
+	padding: 10px;
+
+	:global {
+		.ant-card {
+			border-radius: 0;
+			margin-bottom: 24px;
+			&:hover {
+				box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
+			}
+		}
+		.ant-card-body {
+			overflow-x: hidden;
+		}
+	}
+}

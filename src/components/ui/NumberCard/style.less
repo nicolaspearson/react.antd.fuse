@@ -1,0 +1,35 @@
+@import 'app-theme.less';
+
+.NumberCard__Main {
+	.Card__Item {
+		padding: 32px;
+		margin-bottom: 24px;
+		cursor: pointer;
+
+		.Icon__Wrap {
+			font-size: 54px;
+			float: left;
+		}
+
+		.Content {
+			width: 100%;
+			padding-left: 78px;
+
+			.Title {
+				line-height: 16px;
+				font-size: 16px;
+				margin-bottom: 8px;
+				height: 16px;
+				.text-overflow();
+			}
+
+			.Number {
+				line-height: 32px;
+				font-size: 24px;
+				height: 32px;
+				.text-overflow();
+				margin-bottom: 0;
+			}
+		}
+	}
+}
