@@ -86,7 +86,7 @@ The dependency list below is not exhaustive, it is simply used to highlight the 
 
 - [FuseBox 3.6.0](https://fuse-box.org)
 - [Less 3.8.1](http://lesscss.org/)
-- [Typescript 3.1.6](https://www.typescriptlang.org/)
+- [Typescript 3.2.1](https://www.typescriptlang.org/)
 
 ### Contribution guidelines
 
