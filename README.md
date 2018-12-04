@@ -19,6 +19,11 @@ This project includes a multi-stage Dockerfile, to build an image you can execut
 
 Captcha codes have been integrated using [Reaptcha](https://github.com/sarneeh/reaptcha). Register for v2 reCaptcha codes [here](https://www.google.com/recaptcha/intro/v3.html), then change the site keys in the `.env` files accordingly.
 
+```
+REACT_APP_RECAPTCHA_SITE_KEY=<YOUR-SITE-KEY>
+REACT_APP_RECAPTCHA_INVISIBLE_SITE_KEY=<YOUR-INVISIBLE-SITE-KEY>
+```
+
 ### Themes and generated output
 
 This project uses a `Git Kraken` theme, feel free to swop it out with your flavour!
