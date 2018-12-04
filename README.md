@@ -27,7 +27,7 @@ The styles are applied at build time, any changes that are made to your theme wi
 
 ### API
 
-If you need an API for this frontend, it has been integrated with this project:
+If you need an API for this frontend, it has been integrated with this project: [node.api.gateway](https://github.com/nicolaspearson/node.api.gateway)
 
 ### Directory structure
 
