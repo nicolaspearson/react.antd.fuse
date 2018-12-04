@@ -1,5 +1,275 @@
 @import 'app-theme.less';
 
-.Landing__Layout {
-	height: 100%;
+.Landing__Main {
+	background: @landing-background;
+
+	.Top__Layout {
+		display: flex;
+		flex: 1;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		padding: 40px;
+		background: @landing-background;
+
+		.Text__Wrapper {
+			width: 54%;
+			max-width: 560px;
+			min-width: 420px;
+
+			h1 {
+				font-size: 68px;
+				font-weight: 600;
+				line-height: 76px;
+				margin: 8px 0 28px;
+				color: @secondary-color;
+			}
+
+			p {
+				font-size: 20px;
+				line-height: 40px;
+				color: @secondary-color;
+			}
+
+			.Text__Wrapper__Buttons {
+				.Button {
+					min-width: 120px;
+					margin-right: 20px;
+				}
+			}
+		}
+
+		.Image__Wrapper {
+			width: 46%;
+			max-width: 482px;
+
+			.ReactOfficial__Main {
+				height: 185px;
+				margin: 8px;
+				padding-right: 15px;
+			}
+
+			.Landing__Plus {
+				color: @secondary-color;
+			}
+
+			.Plus__Main {
+				height: 35px;
+				margin: 8px;
+			}
+
+			.AntDesign__Main {
+				height: 140px;
+				margin: 8px;
+				padding-left: 30px;
+			}
+		}
+	}
+
+	.EarlyAccess__Layout {
+		text-align: center;
+		font-weight: 400;
+		padding: 30px 10px 50px;
+		background: @primary-color;
+		margin-left: auto;
+		margin-right: auto;
+
+		.Text__Wrapper {
+			width: 100%;
+			padding: 10px 40px;
+
+			h1 {
+				font-size: 46px;
+				font-weight: 500;
+				line-height: 60px;
+				margin: 8px 0 10px;
+				color: @color-font-light;
+			}
+
+			p {
+				font-size: 16px;
+				line-height: 32px;
+				font-weight: 400;
+				color: @color-font-light;
+			}
+		}
+	}
+
+	.ContactUs__Layout {
+		text-align: center;
+		font-weight: 400;
+		padding: 30px 10px 50px;
+		background: @secondary-color;
+		margin-left: auto;
+		margin-right: auto;
+
+		.Text__Wrapper {
+			width: 100%;
+			padding: 10px 40px;
+
+			h1 {
+				font-size: 46px;
+				font-weight: 500;
+				line-height: 60px;
+				margin: 8px 0 10px;
+				color: @color-font-light;
+			}
+
+			p {
+				font-size: 16px;
+				line-height: 32px;
+				font-weight: 400;
+				color: @color-font-light;
+			}
+		}
+	}
+
+	.Why__Layout {
+		display: flex;
+		flex: 1;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+
+		.Text__Wrapper {
+			width: 50%;
+			min-height: 336px;
+			background: @secondary-color;
+			padding: 40px;
+
+			h1 {
+				font-size: 36px;
+				font-weight: 500;
+				line-height: 60px;
+				margin: 8px 0 10px;
+				color: @color-font-light;
+			}
+
+			p {
+				font-size: 16px;
+				line-height: 32px;
+				font-weight: 400;
+				max-width: 80%;
+				color: @color-font-light;
+			}
+
+			.Text__Wrapper__Buttons {
+				.ant-btn-ghost {
+					color: @color-font-light;
+				}
+				.Button {
+					min-width: 120px;
+					margin-right: 20px;
+				}
+			}
+		}
+
+		.Text__Wrapper__Alt {
+			background: @primary-color;
+		}
+
+		.Image__Wrapper {
+			width: 50%;
+			min-height: 336px;
+			padding: 40px;
+			display: flex;
+			flex: 1;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			background: @landing-background;
+
+			.ReactOfficial__Main {
+				height: 235px;
+				margin: 8px;
+			}
+
+			.AntDesign__Main {
+				height: 180px;
+				margin: 8px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 560px) {
+	.Landing__Main {
+		.Top__Layout {
+			flex-direction: column;
+
+			.ReactOfficial__Main {
+				height: 125px;
+				margin: 8px;
+				padding-right: 0px;
+			}
+
+			.Plus__Main {
+				height: 35px;
+				margin: 8px;
+				color: @secondary-color;
+			}
+
+			.AntDesign__Main {
+				height: 100px;
+				margin: 8px;
+				padding-left: 0px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 780px) {
+	.Landing__Main {
+		.HiddenAtMd {
+			display: none !important;
+		}
+
+		.ShowFlexAtMd {
+			display: flex !important;
+		}
+
+		.Top__Layout {
+			.Text__Wrapper {
+				width: 100%;
+				max-width: auto;
+				min-width: auto;
+
+				h1 {
+					font-size: 48px;
+					line-height: 56px;
+				}
+
+				p {
+					font-size: 16px;
+					line-height: 36px;
+				}
+			}
+		}
+
+		.Why__Layout {
+			flex-direction: column;
+
+			.Text__Wrapper {
+				width: 100%;
+
+				h1 {
+					font-size: 36px;
+					line-height: 60px;
+					margin: 8px;
+				}
+
+				p {
+					font-size: 16px;
+					line-height: 32px;
+					max-width: 100%;
+				}
+			}
+
+			.Image__Wrapper {
+				width: 100%;
+			}
+		}
+	}
 }

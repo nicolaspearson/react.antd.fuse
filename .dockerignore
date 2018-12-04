@@ -1,0 +1,11 @@
+# Logs
+*.log
+
+# OS
+.DS_Store
+
+# IDE
+.vscode
+
+# Dependencies
+node_modules

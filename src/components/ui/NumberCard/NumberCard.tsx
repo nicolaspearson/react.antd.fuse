@@ -19,7 +19,7 @@ const NumberCard = (props: NumberCardProps) => (
 		<Card className="Card__Item" bordered={false} bodyStyle={{ padding: 0 }}>
 			<Icon className="Icon__Wrap" style={{ color: props.color }} type={props.icon} />
 			<div className="Content">
-				<p className="Title">{props.title || 'No Title'}</p>
+				<p className="Title">{props.title}</p>
 				<p className="Number">{props.number}</p>
 			</div>
 		</Card>

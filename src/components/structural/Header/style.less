@@ -22,7 +22,6 @@
 .Header__Inner {
 	height: 62px;
 	width: 100%;
-	max-width: 1220px;
 	padding-left: 30px;
 	padding-right: 30px;
 	position: relative;
@@ -42,7 +41,9 @@
 }
 
 .Header__Logo {
+	width: 100px;
 	height: 100%;
+	cursor: pointer;
 
 	.Logo__Main {
 		height: 100%;
@@ -70,11 +71,19 @@
 	.Header__Logo :global(svg) {
 		margin: 20px 36px 20px 36px;
 	}
+
+	.Logo__Main {
+		width: 50px;
+	}
 }
 
 @media screen and (min-width: 800px) {
 	.Header__Nav__Toggle {
 		display: none;
+	}
+
+	.Logo__Main {
+		width: 100px;
 	}
 }
 

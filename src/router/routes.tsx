@@ -7,6 +7,9 @@ import Dashboard from 'containers/DashboardLayout';
 import { RouteNames } from 'enums/RouteNames';
 import { RouterStore } from 'store/RouterStore';
 
+import Login from 'pages/Login';
+import SignUp from 'pages/SignUp';
+
 export interface LinkData {
 	name: string;
 	params?: object;
@@ -44,6 +47,46 @@ export const AppRoute: AdvRoute = {
 	}
 };
 routes[AppRoute.name] = AppRoute;
+
+export const LoginRoute: AdvRoute = {
+	name: RouteNames.LOGIN,
+	path: '/login',
+
+	link: () => ({
+		name: LoginRoute.name
+	}),
+
+	component: () => <Login />,
+
+	activate: action((store: RouterStore) => {
+		store.activatedRouteName(LoginRoute.name);
+	}),
+
+	deactivate: (store: RouterStore) => {
+		store.deActivatedRouteName(LoginRoute.name);
+	}
+};
+routes[LoginRoute.name] = LoginRoute;
+
+export const SignUpRoute: AdvRoute = {
+	name: RouteNames.SIGN_UP,
+	path: '/sign-up',
+
+	link: () => ({
+		name: SignUpRoute.name
+	}),
+
+	component: () => <SignUp />,
+
+	activate: action((store: RouterStore) => {
+		store.activatedRouteName(SignUpRoute.name);
+	}),
+
+	deactivate: (store: RouterStore) => {
+		store.deActivatedRouteName(SignUpRoute.name);
+	}
+};
+routes[SignUpRoute.name] = SignUpRoute;
 
 export const DashboardRoute: AdvRoute = {
 	name: RouteNames.DASHBOARD,

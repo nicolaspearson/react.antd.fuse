@@ -1,0 +1,20 @@
+version: '3.5'
+
+networks:
+  react-front-tier:
+    name: react-kraken-client-net
+
+services:
+  react-kraken:
+    hostname: localhost
+    image: react-kraken-client:1.0
+    build:
+      context: .
+    container_name: kraken-react-client
+    expose:
+      - 80
+    ports:
+      - 8080:80
+    restart: always
+    networks:
+      - react-front-tier

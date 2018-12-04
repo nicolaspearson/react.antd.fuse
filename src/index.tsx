@@ -1,3 +1,4 @@
+import { configure } from 'mobx';
 import { observer, Provider } from 'mobx-react';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
@@ -8,6 +9,9 @@ import * as serviceWorker from 'utils/serviceWorker';
 
 // Apply styles and theme
 import 'theme/styles/kraken/index.less';
+
+// MobX: Enforce strict mode
+configure({ enforceActions: 'observed' });
 
 @observer
 export class Main extends React.Component {
@@ -30,6 +34,9 @@ export class Main extends React.Component {
 		return (
 			<Provider
 				store={this.store}
+				authStore={this.store.authStore}
+				contactUsStore={this.store.contactUsStore}
+				earlyAccessStore={this.store.earlyAccessStore}
 				flagStore={this.store.flagStore}
 				routerStore={this.store.routerStore}
 			>

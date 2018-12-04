@@ -1,55 +1,66 @@
 @import 'app-theme.less';
 
-.Login__Form {
-	position: absolute;
-	top: 40%;
-	left: 50%;
-	margin: -160px 0 0 -160px;
-	width: 320px;
-	height: 460px;
-	padding: 36px;
+.Login__Container {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: calc(90vh - 64px);
 
-	.Login__Button {
-		width: 100%;
-	}
-
-	.Login__Assist {
-		color: rgb(204, 204, 204);
-		text-align: center;
-		margin-top: 16px;
-		font-size: 12px;
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.ant-form-item-children {
-		width: 100%;
-	}
-}
-
-.Login__Logo {
-	z-index: 1;
-	background-image: url(images/theme/logo.png);
-	margin-left: auto;
-	margin-right: auto;
-	width: 120px;
-	height: 120px;
-	margin-bottom: 24px;
-	background-attachment: scroll;
-	background-position: center;
-	position: relative;
-	background-repeat: no-repeat;
-	background-size: contain;
-}
-
-@media screen and (min-width: 800px) {
 	.Login__Form {
-		height: 420px;
-		box-shadow: 0 0 100px rgba(0, 0, 0, 0.08);
+		width: 100%;
+		padding: 36px;
+		overflow-y: auto;
+
+		.Login__Button {
+			width: 100%;
+		}
+
+		.Login__Assist {
+			color: rgb(204, 204, 204);
+			text-align: center;
+			margin-top: 16px;
+			font-size: 12px;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.ant-form-item-children {
+			width: 100%;
+		}
 	}
 
 	.Login__Logo {
+		z-index: 1;
+		background-image: url(images/theme/logo.png);
+		margin-left: auto;
+		margin-right: auto;
 		width: 120px;
 		height: 120px;
+		margin-bottom: 24px;
+		background-attachment: scroll;
+		background-position: center;
+		position: relative;
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+}
+
+@media screen and (min-width: 560px) {
+	.Login__Container {
+		justify-content: center;
+
+		.Login__Form {
+			width: 360px;
+			height: 420px;
+			box-shadow: 0 0 100px rgba(0, 0, 0, 0.08);
+		}
+
+		.Login__Logo {
+			width: 120px;
+			height: 120px;
+		}
 	}
 }

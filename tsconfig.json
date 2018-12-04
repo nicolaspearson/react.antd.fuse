@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"outDir": "../build",
+		"outDir": "build",
 		"module": "esnext",
 		"target": "es5",
 		"lib": ["es6", "es7", "dom"],
@@ -8,7 +8,8 @@
 		"allowJs": false,
 		"jsx": "react",
 		"moduleResolution": "node",
-		"baseUrl": ".",
+		"rootDir": ".",
+		"baseUrl": "./src",
 		"forceConsistentCasingInFileNames": true,
 		"experimentalDecorators": true,
 		"noImplicitReturns": true,
@@ -18,7 +19,21 @@
 		"suppressImplicitAnyIndexErrors": true,
 		"noUnusedLocals": true,
 		"allowSyntheticDefaultImports": true,
-		"removeComments": false
+		"removeComments": true,
+		"skipLibCheck": true,
+		"paths": {
+			"assets/*": ["./assets/*"],
+			"components/*": ["./components/*"],
+			"containers/*": ["./containers/*"],
+			"enums/*": ["./enums/*"],
+			"logger": ["./logger/index"],
+			"models/*": ["./models/*"],
+			"pages/*": ["./pages/*"],
+			"router/*": ["./router/*"],
+			"store/*": ["./store/*"],
+			"theme/*": ["./theme/*"],
+			"utils/*": ["./utils/*"]
+		}
 	},
 	"exclude": ["node_modules", "build"]
 }

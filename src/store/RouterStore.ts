@@ -1,4 +1,4 @@
-import { observable } from 'mobx';
+import { action, observable } from 'mobx';
 import { DoneFn, NavigationOptions } from 'router5';
 
 import { makeMobxRouter } from 'router/router';
@@ -20,10 +20,12 @@ export class RouterStore {
 		this.rootStore = rootStore;
 	}
 
+	@action
 	public activatedRouteName(routeName: string) {
 		this.activeRouteName = routeName;
 	}
 
+	@action
 	public deActivatedRouteName(routeName: string) {
 		// Empty for now
 	}

@@ -1,3 +1,5 @@
+import Logger from 'logger';
+
 // tslint:disable no-var-requires
 const paletteJson = require('./raw/palette.json');
 
@@ -11,7 +13,7 @@ export default class PaletteUtils {
 			for (const key of Object.keys(paletteJson)) {
 				const item = paletteJson[key];
 				if (key === variableName) {
-					console.log(`Found color value: ${item} for variable: ${key}`);
+					Logger.log(`Found color value: ${item} for variable: ${key}`);
 					colorValue = item;
 					break;
 				}

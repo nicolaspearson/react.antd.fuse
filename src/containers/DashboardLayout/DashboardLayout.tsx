@@ -13,6 +13,8 @@ import Overview from 'pages/Dashboard/Overview';
 import Theme from 'pages/Dashboard/Theme';
 import { RouterStore } from 'store/RouterStore';
 
+import Logger from 'logger';
+
 const { Header, Sider, Content } = Layout;
 
 import './style.less';
@@ -64,7 +66,7 @@ class DashboardLayout extends React.Component<DashboardLayoutProps, State> {
 	}
 
 	private handleLogoutClick = () => {
-		console.log('Logout clicked!');
+		Logger.log('Logout clicked!');
 		if (this.props.routerStore) {
 			const { router } = this.props.routerStore;
 			router.navigate(RouteNames.HOME);
@@ -112,27 +114,33 @@ class DashboardLayout extends React.Component<DashboardLayoutProps, State> {
 	private renderMenuItems(): JSX.Element[] {
 		const menuItems: JSX.Element[] = [];
 		menuItems.push(
-			<Menu.Item key="1" style={{ marginTop: 0 }} onClick={this.handleMenuItemClick}>
-				<RouterLink routeName={RouteNames.DASHBOARD_OVERVIEW}>
-					<Icon type="dashboard" />
-					<span>Dashboard</span>
-				</RouterLink>
+			<Menu.Item key="1">
+				<div onClick={this.handleMenuItemClick}>
+					<RouterLink style={{ width: '100%' }} routeName={RouteNames.DASHBOARD_OVERVIEW}>
+						<Icon type="dashboard" />
+						<span>Dashboard</span>
+					</RouterLink>
+				</div>
 			</Menu.Item>
 		);
 		menuItems.push(
-			<Menu.Item key="2" onClick={this.handleMenuItemClick}>
-				<RouterLink routeName={RouteNames.DASHBOARD_CALENDAR}>
-					<Icon type="calendar" />
-					<span>Calendar</span>
-				</RouterLink>
+			<Menu.Item key="2">
+				<div onClick={this.handleMenuItemClick}>
+					<RouterLink style={{ width: '100%' }} routeName={RouteNames.DASHBOARD_CALENDAR}>
+						<Icon type="calendar" />
+						<span>Calendar</span>
+					</RouterLink>
+				</div>
 			</Menu.Item>
 		);
 		menuItems.push(
-			<Menu.Item key="3" onClick={this.handleMenuItemClick}>
-				<RouterLink routeName={RouteNames.DASHBOARD_THEME}>
-					<Icon type="sliders" />
-					<span>Theme</span>
-				</RouterLink>
+			<Menu.Item key="3">
+				<div onClick={this.handleMenuItemClick}>
+					<RouterLink style={{ width: '100%' }} routeName={RouteNames.DASHBOARD_THEME}>
+						<Icon type="sliders" />
+						<span>Theme</span>
+					</RouterLink>
+				</div>
 			</Menu.Item>
 		);
 		return menuItems;

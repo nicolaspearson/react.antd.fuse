@@ -2,7 +2,7 @@
 
 Starter project for React built using Typescript, MobX, Ant Design, and FuseBox.
 
-There is a custom MobX router implemented from this great example [hacker-routing-mobx-router5](https://github.com/eugenkiss/hacker-routing-mobx-router5)
+This project uses a custom MobX router implemented from this great example [hacker-routing-mobx-router5](https://github.com/eugenkiss/hacker-routing-mobx-router5)
 
 ### Running the project
 
@@ -11,11 +11,30 @@ There is a custom MobX router implemented from this great example [hacker-routin
 3.  `npm start` to run the application in dev mode.
 4.  `npm run prettier` to prettify the code.
 
+### Docker
+
+This project includes a multi-stage Dockerfile, to build an image you can execute: `docker build . --tag react-kraken-client:1.0`
+
+### Captcha
+
+Captcha codes have been integrated using [Reaptcha](https://github.com/sarneeh/reaptcha). Register for v2 reCaptcha codes [here](https://www.google.com/recaptcha/intro/v3.html), then change the site keys in the `.env` files accordingly
+
+### Themes and generated output
+
+This project uses a `Git Kraken` theme, feel free to swop it out with your flavour!
+
+The styles are applied at build time, any changes that are made to your theme will automatically be applied during development via HMR (Hot Module Reloading). Additionally a JSON file containing the palette is generated from the less file -> `src/utils/raw/palette.json`, the JSON file is used to read any less variables from our typescript classes, see `src/utils/PaletteUtils`.
+
+### API
+
+If you need an API for this frontend, it has been integrated with this project:
+
 ### Directory structure
 
 The `src` directory layout can be seen below:
 
 ```
+src
 ├── assets
 │   └── images
 │       ├── png
@@ -28,8 +47,11 @@ The `src` directory layout can be seen below:
 │   │   ├── HtmlHead
 │   │   └── RouterLink
 │   ├── icon
+│   │   ├── AntDesign
 │   │   ├── Hamburger
-│   │   └── Logo
+│   │   ├── Logo
+│   │   ├── Plus
+│   │   └── ReactOfficial
 │   ├── structural
 │   │   ├── DashboardPage
 │   │   ├── Footer
@@ -40,12 +62,17 @@ The `src` directory layout can be seen below:
 │   │   ├── Page
 │   │   └── SiteNav
 │   └── ui
+│       ├── ContactUsForm
+│       ├── EarlyAccessButton
 │       ├── NumberCard
-│       └── Palette
+│       ├── Palette
+│       ├── Recaptcha
+│       └── RoundButton
 ├── containers
 │   ├── App
 │   └── DashboardLayout
 ├── enums
+├── logger
 ├── models
 ├── pages
 │   ├── Dashboard
@@ -53,9 +80,11 @@ The `src` directory layout can be seen below:
 │   │   ├── Overview
 │   │   └── Theme
 │   ├── Landing
-│   └── Login
+│   ├── Login
+│   └── SignUp
 ├── router
 ├── store
+│   └── api
 ├── theme
 │   └── styles
 │       ├── ant
@@ -64,12 +93,6 @@ The `src` directory layout can be seen below:
 └── utils
     └── raw -- Generated
 ```
-
-### Themes and generated output
-
-This project uses a `Git Kraken` theme, feel free to swop it out with your flavour!
-
-The styles are applied at build time, any changes that are made to your theme will automatically be applied during development via HMR (Hot Module Reloading). Additionally a JSON file containing the palette is generated from the less file -> `src/utils/raw/palette.json`, the JSON file is used to read any less variables from our typescript classes, see `src/utils/PaletteUtils`.
 
 ### Dependencies used:
 

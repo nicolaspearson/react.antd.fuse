@@ -9,7 +9,7 @@
 		"member-ordering": [false],
 		"indent": [true, "tabs", 2],
 		"interface-name": [true, "never-prefix"],
-		"no-console": [false],
+		"no-console": [true],
 		"one-line": [true, "check-open-brace", "check-whitespace"],
 		"no-var-keyword": true,
 		"semicolon": [true, "always", "ignore-bound-class-methods"],

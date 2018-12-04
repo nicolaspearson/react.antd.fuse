@@ -1,3 +1,4 @@
+import classnames from 'classnames';
 import * as React from 'react';
 
 import './style.less';
@@ -8,8 +9,12 @@ export interface NavProps {
 }
 
 const Nav = (props: NavProps) => (
-	<div>
-		<ul className={`Nav__Main ${props.stack ? 'Nav__Stack' : ''}`}>
+	<div className="Nav__Main">
+		<ul
+			className={classnames('Nav__Container', {
+				Nav__Stack: props.stack
+			})}
+		>
 			{React.Children.map(props.children, (Item) => (
 				<li>{Item}</li>
 			))}

@@ -6,9 +6,10 @@ import { RouterStore } from 'store/RouterStore';
 import './style.less';
 
 export interface RouterLinkProps {
-	children?: any;
+	children?: React.ReactNode;
 	routeName: string;
 	routerStore?: RouterStore;
+	style?: React.CSSProperties;
 }
 
 @inject('routerStore')
@@ -26,11 +27,7 @@ class RouterLink extends React.Component<RouterLinkProps> {
 
 	public render() {
 		return (
-			<span
-				className="RouterLink__Main"
-				style={{ height: '100%', width: '100%' }}
-				onClick={this.onRouterLinkClick}
-			>
+			<span className="RouterLink__Main" style={this.props.style} onClick={this.onRouterLinkClick}>
 				{this.props.children}
 			</span>
 		);

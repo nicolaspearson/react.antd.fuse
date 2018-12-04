@@ -1,0 +1,112 @@
+@import 'app-theme.less';
+
+.ContactUsForm__Main {
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+	padding: 0px;
+	justify-content: center;
+	background-color: @contact-us-background;
+
+	.ContactUsForm__Body {
+		width: 80%;
+		max-width: 800px;
+		margin: 0 auto;
+		border-radius: 5px;
+		background-color: @color-transparent;
+	}
+
+	.ContactUsForm__Form {
+		padding: 20px 80px;
+		align-content: center;
+		justify-content: center;
+		align-items: center;
+
+		.g-recaptcha {
+			display: flex;
+			justify-content: center;
+		}
+
+		.Name__Container {
+			padding-bottom: 14px;
+		}
+
+		.Name__Spacer {
+			margin-bottom: 0px;
+		}
+
+		.ContactUsForm__Input {
+			font-size: 13px;
+			font-weight: 500;
+			font-style: normal;
+			font-stretch: normal;
+			line-height: normal;
+			letter-spacing: normal;
+			text-align: left;
+			color: @color-font-medium;
+			padding: 10px 16px;
+			border-radius: 20px;
+			background-color: #f6f7fb;
+			border: 1px solid #f6f7fb;
+		}
+
+		.ContactUsForm__Input:hover {
+			border: 1px solid #f6f7fb;
+		}
+
+		.ContactUsForm__Input:focus {
+			border: 1px solid @primary-color;
+		}
+
+		.ContactUsForm__Input::placeholder {
+			color: @color-placeholder;
+			opacity: 1;
+		}
+
+		button {
+			margin-top: 20px;
+			width: 300px;
+		}
+
+		.ant-form-item-children {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+		}
+
+		.ant-form-explain {
+			text-align: left;
+			padding-left: 16px;
+		}
+	}
+
+	@media screen and (max-width: 767px) {
+		.ContactUsForm__Form {
+			padding: 40px 20px;
+
+			.Name__Spacer {
+				margin-bottom: 20px;
+			}
+
+			button {
+				margin-top: 10px;
+				width: 100%;
+			}
+
+			.ant-form-item-children {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 560px) {
+	.ContactUsForm__Main {
+		padding: 60px 0px;
+
+		.ContactUsForm__Body {
+			width: 90%;
+		}
+	}
+}

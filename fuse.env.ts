@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import * as fs from 'fs';
+import * as path from 'path';
 
 const NODE_ENV = process.env.NODE_ENV;
 if (!NODE_ENV) {
@@ -10,7 +10,7 @@ const resolveApp = (relativePath: string) =>
 	path.resolve(fs.realpathSync(process.cwd()), relativePath);
 const dotenv = resolveApp('.env');
 
-var dotenvFiles = [
+const dotenvFiles = [
 	`${dotenv}.${NODE_ENV}.local`,
 	`${dotenv}.${NODE_ENV}`,
 	// Don't include `.env.local` for `test` environment
@@ -26,7 +26,7 @@ var dotenvFiles = [
 // https://github.com/motdotla/dotenv
 // https://github.com/motdotla/dotenv-expand
 dotenvFiles.forEach((dotenvFile) => {
-	if (fs.existsSync(dotenvFile)) {
+	if (dotenvFile && fs.existsSync(dotenvFile)) {
 		require('dotenv-expand')(
 			require('dotenv').config({
 				path: dotenvFile
@@ -43,7 +43,7 @@ export function getClientEnvironment() {
 	const raw = Object.keys(process.env)
 		.filter((key) => REACT_APP.test(key))
 		.reduce(
-			(env, key) => {
+			(env: any, key: any) => {
 				env[key] = process.env[key];
 				return env;
 			},
@@ -55,7 +55,7 @@ export function getClientEnvironment() {
 		);
 	// Stringify all values
 	const stringified = {
-		'process.env': Object.keys(raw).reduce((env, key) => {
+		'process.env': Object.keys(raw).reduce((env: any, key: any) => {
 			env[key] = JSON.stringify(raw[key]);
 			return env;
 		}, {})

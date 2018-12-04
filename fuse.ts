@@ -1,3 +1,5 @@
+// tslint:disable no-console no-var-requires
+
 import { exec } from 'child_process';
 import * as fs from 'fs';
 import {
@@ -20,14 +22,14 @@ const lessToJs = require('less-vars-to-js');
 
 const LESSPlugin: any = FuseLESSPlugin;
 
-import { getClientEnvironment } from './env';
+import { getClientEnvironment } from './fuse.env';
 
 // Configure the environment
 const env = getClientEnvironment();
 const isProduction = process.env.NODE_ENV === 'production';
 
 // Configure directories
-const root = path.resolve(__dirname, '../');
+const root = path.resolve(__dirname, './');
 const directory = {
 	node_modules: path.join(root, 'node_modules'),
 	build: path.join(root, 'build'),
@@ -41,19 +43,18 @@ const directory = {
 };
 
 // Set the Ant Design variables
-const antdThemeVariables = lessToJs(
+const themeVariables = lessToJs(
 	fs.readFileSync(path.join(directory.applied_theme, 'app-theme.less'), 'utf8')
 );
-antdThemeVariables['@icon-url'] = '"~antd-iconfont/iconfont"';
-fs.writeFileSync(path.join(directory.raw, 'palette.json'), JSON.stringify(antdThemeVariables));
+fs.writeFileSync(path.join(directory.raw, 'palette.json'), JSON.stringify(themeVariables));
 
 // Configure type checker
-const tsConfigPath = path.join(directory.src, 'tsconfig.json');
-const tsLintPath = path.join(directory.src, 'tslint.json');
+const tsConfigPath = path.join(root, 'tsconfig.json');
+const tsLintPath = path.join(root, 'tslint.json');
 const typechecker = TypeChecker({
 	name: 'app',
+	basePath: root,
 	tsConfig: tsConfigPath,
-	basePath: directory.src,
 	tsLint: tsLintPath,
 	yellowOnLint: true,
 	shortenFilenames: true
@@ -108,10 +109,12 @@ function getConfig() {
 		plugins.push(
 			QuantumPlugin({
 				bakeApiIntoBundle: 'app',
+				css: false,
+				extendServerImport: true,
 				polyfills: ['Promise'],
-				target: 'browser',
 				replaceTypeOf: false,
-				treeshake: true,
+				target: 'browser',
+				treeshake: false, // Ant icons are excluded when using tree shaking
 				uglify: true
 			})
 		);
@@ -119,22 +122,36 @@ function getConfig() {
 
 	return FuseBox.init({
 		homeDir: directory.src,
-		sourceMaps: !isProduction,
-		debug: !isProduction,
-		log: {
-			showBundledFiles: false, // Don't list all the bundled files every time we bundle
-			clearTerminalOnBundle: true // Clear the terminal window every time we bundle
-		},
-		cache: !isProduction,
 		target: 'browser',
 		output: `${directory.build}/$name.js`,
+		sourceMaps: !isProduction,
+		cache: !isProduction,
+		debug: !isProduction,
 		hash: isProduction,
+		log: {
+			enabled: !isProduction,
+			showBundledFiles: false, // Don't list all the bundled files every time we bundle
+			clearTerminalOnBundle: false // Clear the terminal window every time we bundle
+		},
 		useJsNext: ['antd'],
 		allowSyntheticDefaultImports: true,
 		useTypescriptCompiler: true,
 		plugins,
 		alias: {
-			app: directory.src
+			app: `~`,
+			assets: '~/assets',
+			components: '~/components',
+			containers: '~/containers',
+			enums: '~/enums',
+			index: '~/index',
+			logger: '~/logger',
+			models: '~/models',
+			pages: '~/pages',
+			router: '~/router',
+			store: '~/store',
+			theme: '~/theme',
+			types: '~/types',
+			utils: '~/utils'
 		}
 	});
 }

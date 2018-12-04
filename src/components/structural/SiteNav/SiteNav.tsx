@@ -15,15 +15,23 @@ export interface SiteNavProps {
 const SiteNav = (props: SiteNavProps) => (
 	<div className={`SiteNav ${props.isOpen ? 'IsOpen' : ''}`} onClick={props.closeNav}>
 		<div className="SiteNav__Inner">
-			<Nav>
-				<RouterLink routeName={RouteNames.HOME}>
-					<span className="SiteNav__Item">Home</span>
-				</RouterLink>
-
-				<RouterLink routeName={RouteNames.DASHBOARD}>
-					<span className="SiteNav__Item">Dashboard</span>
-				</RouterLink>
-			</Nav>
+			<div className="SiteNav__Start">
+				<Nav>
+					<RouterLink routeName={RouteNames.HOME}>
+						<span className="SiteNav__Item">Home</span>
+					</RouterLink>
+				</Nav>
+			</div>
+			<div className="SiteNav__End">
+				<Nav>
+					<RouterLink routeName={RouteNames.LOGIN}>
+						<span className="SiteNav__Item">Login</span>
+					</RouterLink>
+					<RouterLink routeName={RouteNames.SIGN_UP}>
+						<span className="SiteNav__Item">Sign Up</span>
+					</RouterLink>
+				</Nav>
+			</div>
 		</div>
 	</div>
 );
